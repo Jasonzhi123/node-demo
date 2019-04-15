@@ -40,7 +40,7 @@ router.post('/login', async ctx=>{
   }else{
     //success
     ctx.session['admin']=username;
-    ctx.redirect(`${HTTP_ROOT}/admin/`);
+    // ctx.redirect(`${HTTP_ROOT}/admin/`);
   }
 });
 
