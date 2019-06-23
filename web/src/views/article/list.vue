@@ -3,18 +3,13 @@
     <article class="article" id="article">
       <nav class="article-nav">
         <ul class="article-nav-box">
-          <li v-for="(item, index) in nav"
-              @click="changeArticleDesc(item.desc, index)"
-              :class="index === navIndex ? 'article-nav-item article-nav-item--active' : 'article-nav-item'"
-              :key="index">
+          <li v-for="(item, index) in nav" @click="changeArticleDesc(item.desc, index)" :class="index === navIndex ? 'article-nav-item article-nav-item--active' : 'article-nav-item'" :key="index">
             <i :class="item.icon"></i> {{item.name}}
           </li>
         </ul>
       </nav>
       <ul class="article-box" v-if="list.length > 0">
-        <li class="article-item" v-for="(item, index) in list"
-            :key="index"
-            @click="toPath('/article/detail/' + item.id)">
+        <li class="article-item" v-for="(item, index) in list" :key="index" @click="toPath('/article/detail/' + item.id)">
           <div class="article-content">
             <h1 class="article-title">
               {{item.title}}
@@ -38,13 +33,7 @@
         </li>
 
         <section class="page" v-if="pagination">
-          <el-pagination
-            background
-            layout="prev, pager, next"
-            :page-count="pagination.count"
-            :current-page="pagination.current_page"
-            @current-change="changePage"
-            :total="pagination.total">
+          <el-pagination background layout="prev, pager, next" :page-count="pagination.count" :current-page="pagination.current_page" @current-change="changePage" :total="pagination.total">
           </el-pagination>
         </section>
       </ul>
@@ -52,8 +41,8 @@
     </article>
 
     <div class="sidebar">
-      <v-category/>
-      <v-links/>
+      <v-category />
+      <v-links />
     </div>
 
   </section>
@@ -149,140 +138,138 @@
 </script>
 
 <style lang="scss" scoped>
+.container {
+  display: flex;
+  width: 1280px;
+  margin: 0 auto 24px;
+  overflow: hidden;
+}
 
-  .container {
+.article {
+  flex: 9;
+  border-radius: 8px;
+  background: #fff;
+
+  & .article-nav {
+    padding: 16px 0;
+    border-bottom: 1px solid #efefef;
+  }
+
+  & .article-nav-box {
     display: flex;
-    width: 1280px;
-    margin: 0 auto 24px;
+    align-items: center;
+  }
+
+  & .article-nav-item {
+    cursor: pointer;
+    padding: 0 24px;
+    position: relative;
+    font-size: 18px;
+    color: #404040;
+
+    &:after {
+      display: block;
+      content: "";
+      width: 1px;
+      height: 16px;
+      position: absolute;
+      top: 5px;
+      right: 0;
+      border-right: 1px solid #efefef;
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+
+    &:hover {
+      color: #409eff;
+    }
+  }
+
+  & .article-nav-item--active {
+    color: #409eff;
+  }
+
+  & .article-item {
+    cursor: pointer;
+    padding: 24px;
+    display: flex;
+    border-bottom: 1px solid #f8f8f8;
+
+    &:hover {
+      background: #f4f4f4;
+    }
+
+    &:hover .article-title {
+      color: #409eff;
+    }
+  }
+
+  & .article-img {
+    .article-img-inner {
+      width: 96px;
+
+      & img {
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .article-content {
+    flex: 1;
+    margin-right: 24px;
+  }
+
+  & .article-title {
+    color: #464c5b;
+    font-size: 24px;
+    margin: 0;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  .article {
-    flex: 9;
-    border-radius: 8px;
-    background: #fff;
+  & .article-info {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
 
-    & .article-nav {
-      padding: 16px 0;
-      border-bottom: 1px solid #efefef;
-    }
-
-    & .article-nav-box {
-      display: flex;
-      align-items: center;
-    }
-
-    & .article-nav-item {
-      cursor: pointer;
-      padding: 0 24px;
-      position: relative;
-      font-size: 18px;
-      color: #404040;
-
-      &:after {
-        display: block;
-        content: "";
-        width: 1px;
-        height: 16px;
-        position: absolute;
-        top: 5px;
-        right: 0;
-        border-right: 1px solid #efefef;
-      }
-
-      &:last-child:after {
-        display: none;
-      }
-
-      &:hover {
-        color: #409EFF;
-      }
-    }
-
-    & .article-nav-item--active {
-      color: #409EFF;
-    }
-
-    & .article-item {
-      cursor: pointer;
-      padding: 24px;
-      display: flex;
-      border-bottom: 1px solid #f8f8f8;
-
-      &:hover {
-        background: #f4f4f4;
-      }
-
-      &:hover .article-title {
-        color: #409EFF;
-      }
-    }
-
-    & .article-img {
-      .article-img-inner {
-        width: 96px;
-
-        & img {
-          width: 100%;
-          border-radius: 5px;
-        }
-      }
-    }
-
-
-    .article-content {
-      flex: 1;
+    & p {
+      display: inline-block;
       margin-right: 24px;
+      font-size: 16px;
+      color: #9ea7b4;
     }
 
-    & .article-title {
-      color: #464c5b;
-      font-size: 24px;
-      margin: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    & .article-info {
-      margin-top: 24px;
-      display: flex;
-      align-items: center;
-
-      & p {
-        display: inline-block;
-        margin-right: 24px;
-        font-size: 16px;
-        color: #9ea7b4;
-      }
-
-      & p.article-category {
-        height: 28px;
-        line-height: 28px;
-        padding: 0 16px;
-        font-size: 16px;
-        color: #409EFF;
-        border-radius: 24px;
-        background: rgba(51, 119, 255, .1);
-      }
+    & p.article-category {
+      height: 28px;
+      line-height: 28px;
+      padding: 0 16px;
+      font-size: 16px;
+      color: #409eff;
+      border-radius: 24px;
+      background: rgba(51, 119, 255, 0.1);
     }
   }
+}
 
-  .article-empty {
-    text-align: center;
-    padding: 24px 0;
-    font-size: 16px;
-    color: #989898;
-  }
+.article-empty {
+  text-align: center;
+  padding: 24px 0;
+  font-size: 16px;
+  color: #989898;
+}
 
-  .sidebar {
-    box-sizing: border-box;
-    width: 320px;
-    margin-left: 24px;
-  }
+.sidebar {
+  box-sizing: border-box;
+  width: 320px;
+  margin-left: 24px;
+}
 
-  .page {
-    padding: 32px 0;
-    text-align: center;
-  }
+.page {
+  padding: 32px 0;
+  text-align: center;
+}
 </style>

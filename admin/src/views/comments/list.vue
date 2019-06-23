@@ -5,14 +5,13 @@
         <template slot-scope="{ row }" slot="name">
           <strong>{{ row.name }}</strong>
         </template>
-        <template slot-scope="{ row, index }" slot="action">
+        <template slot-scope="{ row }" slot="action">
           <Button type="error" size="small" @click="destroy(row.id)">删除</Button>
         </template>
       </Table>
 
       <section class="page">
-        <Page :total="page.total" :page-size="page.per_page" :current="page.current_page" show-total
-              @on-change="handlePage"></Page>
+        <Page :total="page.total" :page-size="page.per_page" :current="page.current_page" show-total @on-change="handlePage"></Page>
       </section>
 
     </section>
@@ -124,8 +123,8 @@
 </script>
 
 <style scoped>
-  .page {
-    padding: 32px 0;
-    text-align: center;
-  }
+.page {
+  padding: 32px 0;
+  text-align: center;
+}
 </style>

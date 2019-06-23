@@ -3,8 +3,7 @@
     <section class="comments-create">
       <h1 class="comments-title">欢迎评论</h1>
 
-      <el-form :model="ruleForm" status-icon :rules="rules" label-position="left" ref="ruleForm" label-width="50px"
-               class="demo-ruleForm">
+      <el-form :model="ruleForm" status-icon :rules="rules" label-position="left" ref="ruleForm" label-width="50px" class="demo-ruleForm">
         <el-form-item label="昵称" prop="nickname">
           <el-input type="text" placeholder="请输入您的昵称" v-model="ruleForm.nickname"></el-input>
         </el-form-item>
@@ -14,12 +13,7 @@
         <el-form-item label="内容" prop="content">
           <!--          <el-input type="textarea" placeholder="评论内容.." rows="4" v-model="ruleForm.content"-->
           <!--                    autocomplete="off"></el-input>-->
-          <mavon-editor
-            class="mavon-editor--box"
-            v-model="ruleForm.content"
-            :autofocus="false"
-            placeholder="请输入评论内容"
-            :ishljs="true">
+          <mavon-editor class="mavon-editor--box" v-model="ruleForm.content" :autofocus="false" placeholder="请输入评论内容" :ishljs="true">
           </mavon-editor>
         </el-form-item>
         <el-form-item>
@@ -32,33 +26,18 @@
     <section class="comments-list" v-if="commentsList && commentsList.data">
       <h1 class="comments-title">评论列表</h1>
       <ul class="comments-box">
-        <li v-for="(item, index) in commentsList.data"
-            class="comments-item"
-            :key="index">
+        <li v-for="(item, index) in commentsList.data" class="comments-item" :key="index">
           <p class="comments-item-username">
             <i class="icon el-icon-chat-dot-round"></i> 来自「{{item.nickname}}」的评论：
           </p>
           <p class="comments-item-content">
-            <mavon-editor
-              style="min-height: 0;"
-              :ishljs="true"
-              v-model="item.content"
-              :defaultOpen="'preview'"
-              :editable="false"
-              :subfield="false"
-              :toolbarsFlag="false">
+            <mavon-editor style="min-height: 0;" :ishljs="true" v-model="item.content" :defaultOpen="'preview'" :editable="false" :subfield="false" :toolbarsFlag="false">
             </mavon-editor>
           </p>
         </li>
       </ul>
       <section class="page" v-if="commentsList && commentsList.meta">
-        <el-pagination
-          background
-          layout="prev, pager, next"
-          :page-count="commentsList.meta.count"
-          :current-page="commentsList.meta.current_page"
-          @current-change="changePage"
-          :total="commentsList.meta.total">
+        <el-pagination background layout="prev, pager, next" :page-count="commentsList.meta.count" :current-page="commentsList.meta.current_page" @current-change="changePage" :total="commentsList.meta.total">
         </el-pagination>
       </section>
     </section>
@@ -187,71 +166,82 @@
 </script>
 
 <style scoped lang="scss">
-  .comments-title {
-    padding: 16px 0;
-    color: #409EFF;
-    font-size: 36px;
+.comments-title {
+  padding: 16px 0;
+  color: #409eff;
+  font-size: 36px;
+}
+
+.comments-create {
+  width: 1280px;
+  .comments-input-item {
+    margin-bottom: 16px;
+  }
+}
+
+.comments-list {
+  .comments-item {
+    padding: 24px 0;
+    border-bottom: 1px solid #f0f0f0;
   }
 
-  .comments-create {
-    width: 1280px;
-    .comments-input-item {
-      margin-bottom: 16px;
-    }
+  .comments-item-username {
+    font-size: 22px;
+    color: #409eff;
+    font-weight: bold;
   }
 
-  .comments-list {
-    .comments-item {
-      padding: 24px 0;
-      border-bottom: 1px solid #f0f0f0;
-
-    }
-
-    .comments-item-username {
-      font-size: 22px;
-      color: #409EFF;
-      font-weight: bold;
-    }
-
-    .comments-item-content {
-      padding: 24px 24px 0 24px;
-      font-size: 16px;
-    }
+  .comments-item-content {
+    padding: 24px 24px 0 24px;
+    font-size: 16px;
   }
+}
 
-  .page {
-    padding: 32px 0;
-    text-align: center;
-  }
+.page {
+  padding: 32px 0;
+  text-align: center;
+}
 
-  .mavon-editor--box {
-  }
+.mavon-editor--box {
+}
 </style>
 
 <style lang="scss">
-  .comments-item-content {
-    & .v-note-wrapper .v-note-panel {
-      box-shadow: none !important;
-    }
-
-    & .v-note-wrapper .v-note-panel .v-note-show .v-show-content, .v-note-wrapper .v-note-panel .v-note-show .v-show-content-html {
-      background: #fff !important;
-    }
-
-    & .v-note-wrapper .v-note-panel .v-note-edit.divarea-wrapper .content-input-wrapper {
-      padding: 0 !important;
-    }
-
-    & .v-note-wrapper .v-note-panel .v-note-show .v-show-content, .v-note-wrapper .v-note-panel .v-note-show .v-show-content-html {
-      padding: 0 !important;
-    }
-
-    .markdown-body blockquote, .markdown-body dl, .markdown-body ol, .markdown-body p, .markdown-body pre, .markdown-body table, .markdown-body ul {
-      margin-bottom: 0 !important;
-    }
-
-    .markdown-body {
-      font-size: 18px!important;
-    }
+.comments-item-content {
+  & .v-note-wrapper .v-note-panel {
+    box-shadow: none !important;
   }
+
+  & .v-note-wrapper .v-note-panel .v-note-show .v-show-content,
+  .v-note-wrapper .v-note-panel .v-note-show .v-show-content-html {
+    background: #fff !important;
+  }
+
+  &
+    .v-note-wrapper
+    .v-note-panel
+    .v-note-edit.divarea-wrapper
+    .content-input-wrapper {
+    padding: 0 !important;
+  }
+
+  & .v-note-wrapper .v-note-panel .v-note-show .v-show-content,
+  .v-note-wrapper .v-note-panel .v-note-show .v-show-content-html {
+    padding: 0 !important;
+  }
+
+  .markdown-body blockquote,
+  .markdown-body dl,
+  .markdown-body ol,
+  .markdown-body p,
+  .markdown-body pre,
+  .markdown-body table,
+  .markdown-body ul {
+    margin-bottom: 0 !important;
+  }
+
+  .markdown-body {
+    font-size: 18px !important;
+  }
+}
 </style>

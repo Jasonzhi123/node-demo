@@ -19,19 +19,15 @@ Util.ajax.interceptors.request.use(config => {
 
   // 获取token
   return config
-
 }, error => {
   return Promise.reject(error)
 
 });
 
 Util.ajax.interceptors.response.use(response => {
-
   // 关闭loading
   closeLoading()
-
   return response;
-
 }, error => {
 
   if (error.response.status === 403) {
@@ -58,8 +54,12 @@ Util.ajax.interceptors.response.use(response => {
 
 export default {
   post(url, params = {}) {
-    const {username} = params;
-    const {isLoading = true} = params;
+    const {
+      username
+    } = params;
+    const {
+      isLoading = true
+    } = params;
 
     return Util.ajax({
       method: 'post',
@@ -77,8 +77,12 @@ export default {
   },
 
   get(url, params = {}) {
-    const {username} = params;
-    const {isLoading = true} = params;
+    const {
+      username
+    } = params;
+    const {
+      isLoading = true
+    } = params;
 
     return Util.ajax({
       method: 'get',
@@ -92,7 +96,9 @@ export default {
   },
 
   delete(url, params = {}) {
-    let {isLoading = true} = params;
+    let {
+      isLoading = true
+    } = params;
     return Util.ajax({
       method: 'delete',
       url: url,
@@ -102,7 +108,9 @@ export default {
   },
 
   put(url, params = {}) {
-    let {isLoading = true} = params;
+    let {
+      isLoading = true
+    } = params;
     return Util.ajax({
       method: 'put',
       url: url,

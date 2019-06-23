@@ -7,12 +7,9 @@
 
 <script>
   import {mapState, mapActions} from "vuex"
-
   export default {
     components: {},
-
     data() {
-
       return {}
     },
 
@@ -27,7 +24,7 @@
 </script>
 
 <style scoped>
-  h1 {
-    font-weight: normal;
-  }
+h1 {
+  font-weight: normal;
+}
 </style>

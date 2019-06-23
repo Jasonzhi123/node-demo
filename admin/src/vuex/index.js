@@ -39,7 +39,9 @@ const mutations = {
 }
 
 const actions = {
-  setMainLoading({commit}, data) {
+  setMainLoading({
+    commit
+  }, data) {
     commit(types.SET_MAIN_LOADING, data)
   }
 }

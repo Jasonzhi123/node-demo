@@ -5,7 +5,9 @@ import Vuex from 'vuex';
 import Util from './libs/util'
 import App from './app.vue';
 import store from './vuex'
-import {sync} from 'vuex-router-sync'
+import {
+  sync
+} from 'vuex-router-sync'
 import VueLocalStorage from 'vue-ls';
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
@@ -30,7 +32,10 @@ const RouterConfig = {
     if (savedPosition) {
       return savedPosition
     } else {
-      return {x: 0, y: 0}
+      return {
+        x: 0,
+        y: 0
+      }
     }
   }
 };
@@ -47,7 +52,6 @@ router.beforeEach(async (to, from, next) => {
   if (token) {
     store.dispatch('admin/auth').then(() => {
       next()
-
     }).catch(ret => {
       setTimeout(() => {
         next('/login')

@@ -6,16 +6,16 @@
   </div>
 </template>
 <style scoped>
-  .container {
-    text-align: center;
-    vertical-align: middle;
-    width: 100%;
-    height: 100%;
-  }
-  .title {
-    font-size: 100px;
-    padding-top: 100px;
-  }
+.container {
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+.title {
+  font-size: 100px;
+  padding-top: 100px;
+}
 </style>
 
 <script>

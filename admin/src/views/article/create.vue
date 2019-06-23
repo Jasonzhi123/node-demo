@@ -2,10 +2,10 @@
   <section>
     <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="100">
       <FormItem label="文章标题" prop="title">
-        <Input v-model="formValidate.title" placeholder="文章标题"></Input>
+        <Input v-model="formValidate.title" placeholder="文章标题" />
       </FormItem>
       <FormItem label="文章作者" prop="author">
-        <Input v-model="formValidate.author" placeholder="文章作者"></Input>
+        <Input v-model="formValidate.author" placeholder="文章作者" />
       </FormItem>
       <FormItem label="文章分类" v-if="categoryList.length > 0">
         <Select v-model="formValidate.category_id">
@@ -15,14 +15,7 @@
       <FormItem label="文章封面" prop="cover">
         <div class="cover">
           <div class="upload">
-            <Upload
-              multiple
-              type="drag"
-              action="http://up-z2.qiniu.com"
-              :show-upload-list="false"
-              :on-success="uploadSuccess"
-              :on-error="uploadError"
-              :data="{token}">
+            <Upload multiple type="drag" action="http://up-z2.qiniu.com" :show-upload-list="false" :on-success="uploadSuccess" :on-error="uploadError" :data="{token}">
               <div style="padding: 20px 0">
                 <Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
                 <p>点击或者拖拽上传</p>
@@ -35,10 +28,7 @@
         </div>
       </FormItem>
       <FormItem label="文章内容" prop="content">
-        <mavon-editor
-          v-model="formValidate.content"
-          :ishljs="true"
-          ref=md>
+        <mavon-editor v-model="formValidate.content" :ishljs="true" ref=md>
         </mavon-editor>
 
       </FormItem>
@@ -149,20 +139,20 @@
   }
 </script>
 <style scoped>
-  .article-cover {
-    width: 120px;
-  }
+.article-cover {
+  width: 120px;
+}
 
-  .article-cover img {
-    width: 100%;
-  }
+.article-cover img {
+  width: 100%;
+}
 
-  .cover {
-    display: flex;
-  }
+.cover {
+  display: flex;
+}
 
-  .cover .upload {
-    width: 280px;
-    margin-right: 32px;
-  }
+.cover .upload {
+  width: 280px;
+  margin-right: 32px;
+}
 </style>

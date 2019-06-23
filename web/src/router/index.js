@@ -11,11 +11,13 @@ export default new Router({
     if (savedPosition) {
       return savedPosition
     } else {
-      return {x: 0, y: 0}
+      return {
+        x: 0,
+        y: 0
+      }
     }
   },
-  routes: [
-    {
+  routes: [{
       // 文章列表
       path: '/',
       component(resolve) {

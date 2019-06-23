@@ -5,10 +5,7 @@
     </h1>
     <ul class="category-box" v-if="list.length > 0">
       <li class="category-item">全部文章</li>
-      <li v-for="(category, index) in list"
-          @click="changeArticleCategory(category.id)"
-          class="category-item"
-          :key="index">
+      <li v-for="(category, index) in list" @click="changeArticleCategory(category.id)" class="category-item" :key="index">
         {{category.name}}（ {{category.article_nums}} ）
       </li>
     </ul>
@@ -85,39 +82,39 @@
 </script>
 
 <style scoped lang="scss">
-  .category {
-    padding: 0 24px;
-    margin-bottom: 24px;
-    background: #fff;
-    border-radius: 5px;
+.category {
+  padding: 0 24px;
+  margin-bottom: 24px;
+  background: #fff;
+  border-radius: 5px;
 
-    & .category-title {
-      display: flex;
-      align-items: center;
-      color: #464c5b;
-      font-size: 24px;
-      padding: 10px 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
+  & .category-title {
+    display: flex;
+    align-items: center;
+    color: #464c5b;
+    font-size: 24px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
 
-    & .icon {
-      margin-right: 8px;
-    }
+  & .icon {
+    margin-right: 8px;
+  }
 
-    & .category-box {
-      padding: 16px 0;
-    }
+  & .category-box {
+    padding: 16px 0;
+  }
 
-    & .category-item {
-      position: relative;
-      cursor: pointer;
-      margin-bottom: 16px;
-      font-size: 16px;
-      color: #657180;
+  & .category-item {
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: #657180;
 
-      &:hover {
-        color: #409EFF;
-      }
+    &:hover {
+      color: #409eff;
     }
   }
+}
 </style>

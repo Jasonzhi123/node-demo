@@ -4,4 +4,3 @@ export const SET_MAIN_LOADING = 'SET_MAIN_LOADING'
 export const SET_PICTURE_MODAL = 'SET_PICTURE_MODAL'
 // 会员信息
 export const SET_USER_INFO = 'SET_USER_INFO'
-
